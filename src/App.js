@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HospitalPortal from './components/HospitalPortal';
+import PatientHistory from './components/PatientHistory';
+import ReportAnalysis from './components/ReportAnalysis';
+import CheckupTimeline from './components/CheckupTimeline';
+import MyChartComponent from './components/MyChartComponent';  // Import your chart component
+import Footer from './components/Footer';  // Import Footer
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          {/* Authentication Route */}
+          <Route path="/auth" element={<HospitalPortal isAuthRoute={true} />} />
+
+          {/* Protected Routes */}
+          <Route path="/" element={<HospitalPortal />}>
+            <Route path="patient-history" element={<PatientHistory />} />
+            <Route path="report-analysis" element={<ReportAnalysis />} />
+            <Route path="checkup-timeline" element={<CheckupTimeline />} />
+            {/* Example: Including chart component in a specific route */}
+            <Route path="charts" element={<MyChartComponent />} />
+          </Route>
+
+          {/* Redirect any unknown routes to authentication */}
+          <Route path="*" element={<HospitalPortal isAuthRoute={true} />} />
+        </Routes>
+        <Footer /> {/* Footer component placed at the bottom */}
+      </div>
+    </Router>
   );
 }
 

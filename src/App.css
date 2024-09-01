@@ -1,38 +1,414 @@
-.App {
-  text-align: center;
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6f9;
+  color: #333;
+  line-height: 1.6;
+  background: no-repeat center center fixed;
+  background-size: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  text-decoration: none;
+  color: #3498db;
+  transition: color 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a:hover {
+  color: #2980b9;
 }
 
-.App-header {
-  background-color: #282c34;
+/* Sidebar Styles */
+.side-nav {
+  width: 250px;
+  background-color: #2c3e50;
+  padding-top: 20px;
+  text-align: left;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.15);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.side-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-nav ul li {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  color: #ecf0f1;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s, padding-left 0.3s;
+}
+
+.side-nav ul li:hover {
+  background-color: #34495e;
+  padding-left: 25px;
+}
+
+.side-nav ul li .nav-icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.side-nav ul li.active {
+  background-color: #1abc9c;
+  padding-left: 25px;
+  font-weight: bold;
+}
+
+/* Content Area Styles */
+.portal-content {
+  margin-left: 250px;
+  padding: 40px;
+  background-color: #f7f9fc;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
+}
+
+.portal-content h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #34495e;
+  text-align: center;
+}
+
+/* Authentication Container */
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin: 50px auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.patient-details {
+  margin: 20px 0;
+  text-align: left;
+  width: 100%;
+}
+
+.patient-details p {
+  margin: 5px 0;
+  font-size: 18px;
+  color: #2c3e50;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.password-input {
+  width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+}
+
+.password-input:focus {
+  border-color: #3498db;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #007bff;
   color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.submit-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* User Home Page Styles */
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+.user-card {
+  background-color: #ecf0f1;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.user-card h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.user-card p {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #34495e;
+}
+
+/* Report History Styles */
+.report-history-container {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.report-history-container h2 {
+  font-size: 28px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.report-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.report-item {
+  background-color: #ecf0f1;
+  margin-bottom: 15px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  box-sizing: border-box;
+}
+
+.report-item:hover {
+  transform: translateY(-3px);
+}
+
+/* Blood Report Analysis Styles */
+.analysis-container {
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 16px;
+  margin-bottom: 5px;
+  display: block;
+  color: #34495e;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: #3498db;
+}
+
+.analyze-button {
+  padding: 12px 20px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.analyze-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+}
+
+.diagnosis-result {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #ecf0f1;
+  border-radius: 5px;
+  font-size: 18px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.diagnosis-result:hover {
+  transform: translateY(-3px);
+}
+
+/* Checkup Timeline Styles */
+.checkup-timeline-container {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.checkup-timeline-container h2 {
+  font-size: 28px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.timeline-item {
+  background-color: #ecf0f1;
+  margin-bottom: 15px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  box-sizing: border-box;
+}
+
+.timeline-item:hover {
+  transform: translateY(-3px);
+}
+
+.timeline-date {
+  font-size: 16px;
+  color: #2980b9;
+  margin-bottom: 5px;
+}
+
+.timeline-details {
+  font-size: 18px;
+  color: #34495e;
+}
+
+/* src/components/Footer.css */
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 1000; /* Ensure the footer stays on top */
+}
+
+.footer a {
+  color: #3498db;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #2980b9;
+}
+
+/* Example CSS for Typography */
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif;
+  color: #2c3e50;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  color: #666;
+}
+/* QR Code Container */
+.qr-scan-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin: 50px auto;
+  max-width: 400px;
+  text-align: center;
+}
+
+.qr-code-container {
+  margin: 20px auto;
+  width: 150px; /* Adjusted size of the QR code container */
+}
+
+.qr-code {
+  display: block;
+  width: 70%;
+  height: auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.qr-code:hover {
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.scan-complete-button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #007bff; /* Blue color for the button */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.scan-complete-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-3px);
 }

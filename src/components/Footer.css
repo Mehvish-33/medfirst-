@@ -1,0 +1,35 @@
+/* Footer Styles */
+.footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .footer p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  /* Ensure footer doesn't cover content */
+  body {
+    margin: 0;
+    padding-bottom: 60px; /* Adjusted to make space for the footer */
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Other Content Adjustments */
+  .qr-code-container {
+    margin-bottom: 80px; /* Ensure there's enough space above the footer */
+  }
+  
+  .home-container {
+    padding-bottom: 80px; /* Ensure content above the footer has enough spacing */
+  }
+  
